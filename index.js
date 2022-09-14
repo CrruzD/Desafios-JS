@@ -1,104 +1,148 @@
-/* let edad = prompt("Bienvenido, ingrese su edad por favor")
+// ============ ESTRUCTURA DE PRODUCTOS ============ //
 
-     if (edad >= 18){
+class pedido
+{
+    constructor(id, prenda, precio)
+    {
+        this.id = id;
+        this.prenda = prenda;
+        this.precio = precio
+    }
+}
+// ============ PRODUCTOS ============ //
 
-               let opcion 
+const pedido1 = new pedido (1, "Remeras", 3400)
+const pedido2 = new pedido (2, "Camisas", 5200)
+const pedido3 = new pedido (3, "Sweters", 8200)
+const pedido4 = new pedido (4, "Buzos", 12000)
+const pedido5 = new pedido (5, "Pantalones", 15300)
+const pedido6 = new pedido (6, "Bermudas", 5800)
 
-                    do{
-                         opcion = parseInt(prompt("Usted es mayor de edad, puede tomar lo que desee.\n 1. Fernet \n 2. Cerveza \n 3. Vino \n 4. Agua"))
-                         
-                              switch (opcion){
-                                   case 1: 
-                                        alert("Muy bien, aquí tiene su Fernet")
-                                   break
-                                   case 2: 
-                                        alert("Muy bien, aquí tiene su Cerveza")
-                                   break
-                                   case 3: 
-                                        alert("Muy bien, aquí tiene su Vino")
-                                   break
-                                   case 4: 
-                                        alert("No, de ninguna manera. Adios. ")
-                                   break
-                                   default:
-                                        alert("Opcion no valida")
-                              }
-                    
-                    }
+// ============ ARRAY CARRITO ============ //
 
-                    while(opcion != 4){
+const carrito = [];
 
-                    }
+// ============ BIENVENIDA ============ //
+
+if (confirm(`Bienvenido, ¿Le gustaría ver nuestros productos? \n`) == true) {
+    agregar()
+  } else {
+    alert("¡Hasta pronto!");
+  }
+// ============ BUCLE PEDIDO ============ //
+
+// ============ FUNCION DE PEDIDO ============ //
+
+function agregar(){
+let productoId = Number(prompt (`¿Qué desea llevar?:
+     1. Remeras
+     2. Camisas
+     3. Sweters
+     4. Buzos
+     5. Pantalones
+     6. Bermudas
+     7. Ir al carrito`))
+
+// ============ BUCLE DE PEDIDO DENTRO DE LA FUNCION ============ //
+
+while (productoId != 7) 
+
+{
+     switch (productoId)
+     {
+          case 1:
+               carrito.push(pedido1)
+          break
+          case 2:
+               carrito.push(pedido2)
+          break
+          case 3:
+               carrito.push(pedido3)
+          break
+          case 4:
+               carrito.push(pedido4)
+          break
+          case 5:
+               carrito.push(pedido5)
+          break
+          case 6:
+               carrito.push(pedido6)
+          break
+          default:
+               alert("Tu opcion es incorrecta")
+          break
      }
-     else if (edad < 18)
-          {
-               alert("Disculpe, no podemos dejar ingresar menores de edad.")
-          }
-     else
-          {
-               alert("Ingrese un valor valido")
-          }  */
 
+productoId = Number(prompt (`¿Desea agregar algo mas?:
+     1. Remeras
+     2. Camisas
+     3. Sweters
+     4. Buzos
+     5. Pantalones
+     6. Bermudas
+     7. Ir al carrito`))
+}
 
-// DESAFIO COMPLEMENTARIO ARRAYS
+console.log(carrito)
+revisar()
+}
 
-let arrayAlumnosAprobados = ["Juan Cruz", "Facundo", "Benjamin"]
+// ============ FUNCION UPSALE PARA COMPRAR PAPAS Y BEBIDAS ============ //
 
-for (let index = 0; index < arrayAlumnosAprobados.length; index++) {
-     console.log("Indice: " + index + " - " + arrayAlumnosAprobados[index])
- }
-// AGREGO A UN ALUMNO APROBADO
-
- arrayAlumnosAprobados.push("Tiziana")
-
- console.log(arrayAlumnosAprobados)
-
- // ELIMINO A UN ALUMNO PORQUE QUIERO 
-
- arrayAlumnosAprobados.splice(2, 1)
-
- console.log(arrayAlumnosAprobados)
-
- // VOY A MOSTRAR LOS ALUMNOS DESAPROBADOS
-
- let arrayAlumnosDesaprobados = ["Marcos", "Damian", "Daniel"]
-
- console.log(arrayAlumnosDesaprobados)
-
- // CANTIDAD TOTAL DE ALUMNOS ( APROBADOS Y DESAPROBADOS )
-
- let arrayTotalAlumnos = arrayAlumnosAprobados.concat(arrayAlumnosDesaprobados)
-
- console.log(arrayTotalAlumnos)
-
- // CONCATENADOS
-
- let arrayConcatenado = arrayTotalAlumnos.join(" | ")
-
- console.log(arrayConcatenado)
-
- // ¿ TIZIANA Y DAMIAN APROBARON?
-
- console.log (arrayAlumnosAprobados.includes("Tiziana"))
- console.log (arrayAlumnosAprobados.includes("Damian"))
-
- // VEO QUE BENJAMIN SE CAMBIA DE CURSO
-
- let alumnoOut = "Benjamin"
-
- function eliminarAlumno(alumnoOut){
-     let index = arrayTotalAlumnos.indexOf(alumnoOut)
-
-     if(index != -1){
-          arrayTotalAlumnos.splice(index, 1)
+function upsale()
+{
+    let agregarOtro = Number(prompt(`Finalizando pedido:
+          1. Deseas agregar medias por $990
+          2. No agregar y finalizar pedido`))
+     if (agregarOtro == 1)
+     {
+          calcularTotal(carrito)
+               alert(`El total de su pedido es: $${calcularTotal(carrito)+990}`)
      }
-     else{
-          alert("Alumno no encontrado")
+     else if (agregarOtro == 2) 
+     {
+          calcularTotal(carrito)
+          alert(`El total de su pedido es: $${calcularTotal(carrito)}`)
+     } 
+     else 
+     {
+          alert("Valor inválido, vuelve a intentarlo")    
+          upsale()
+     }    
+}
+
+// ============ FUNCION PARA REVISAR PEDIDO ============ //
+
+function revisar()
+{
+    const prendas = carrito.map((pedido) => pedido.prenda)
+    alert(`Su pedido es:
+    ${prendas} por un total de $${calcularTotal(carrito)}`)
+
+// ============ FINALIZANDO PEDIDO ============ //
+
+let eleccion = Number(prompt(`Seleccione si desea: 
+     1. Agregar más prendas a su orden
+     2. Finalizar su orden`))
+
+     if (eleccion == 1) 
+     {
+          agregar();
+     } 
+     else 
+     {
+          upsale();
      }
- }
+}
 
- let valorAEliminar = prompt("Ingrese un nombre")
+// ============ FUNCION PARA CALCULAR EL TOTAL ============ //
 
- eliminarAlumno(valorAEliminar)
+function calcularTotal(carrito)
 
- console.log(arrayTotalAlumnos)
+{
+    let total = carrito.reduce((acumulador, pedido)=> 
+    {
+        return acumulador + pedido.precio
+    },0)
+     return total
+}

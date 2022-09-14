@@ -1,15 +1,37 @@
 /************** Valores seteados por default **************/
 
-* {
-     box-sizing: border-box;
-     margin: 0;
-     padding: 0;
- }
+          * {
+               box-sizing: border-box;
+               margin: 0;
+               padding: 0;
+          }
+
+ /************** Valores seteados por default **************/
+
 html {
      font-size: 62.5%;
-     font-family:'DM Sans', sans-serif;
+     font-family: sans-serif;
  }
  
 body{
      background-color: #b1d6b9;
+}
+
+h1{
+     margin: 0;
+}
+
+
+ /************** Clases **************/
+
+
+.container{
+     color: rgb(38, 66, 221);
+     height: 20rem;
+     display: grid;
+     place-items: center;
+     /* justify-content: center; */
+}
+.container .containerTitulo h1{
+     font-size: 3rem;
 }
