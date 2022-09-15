@@ -26,12 +26,19 @@ h1{
 
 
 .container{
-     color: rgb(38, 66, 221);
      height: 20rem;
-     display: grid;
-     place-items: center;
      /* justify-content: center; */
 }
-.container .containerTitulo h1{
+.container .containerTitle h1{
+     margin-top: 3rem;
      font-size: 3rem;
+     color: rgb(65, 156, 156);
+     display: grid;
+     place-items: center;
+
+}
+
+.container .containerSubtitle h3{
+     color: rgb(57, 97, 97);
+     
 }
