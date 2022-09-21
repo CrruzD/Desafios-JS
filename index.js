@@ -1,3 +1,49 @@
+/* let Inputs = [];
+
+let login;
+let InputEmail;
+let InputPassword;
+
+let admin = admin;
+let password = 1234;
+
+let contenedorLogin;
+
+class Formulario {
+     constructor(email, contraseña) {
+          this.email = InputEmail;
+          this.contraseña = InputPassword;
+     }
+}
+
+function inicializarElementos() {
+     login = document.getElementById("login");
+     InputEmail = document.getElementById("inputEmail");
+     InputPassword = document.getElementById("inputPassword")
+}
+
+function inicializarEventos() {
+     login.onsubmit = (event) => validarFormulario(event);
+}
+
+function validarFormulario (event) {
+     event.preventDefault();
+     let login = login.value;
+     let InputEmail = InputEmail.value;
+     let InputPassword = InputPassword.value;
+}
+
+
+const emailExiste = Inputs.some((Formulario) => Formulario.InputEmail === admin && InputPassword === password);
+     if (!emailExiste) {
+          document.write("Bienvenido")
+     }
+     else {
+          document.write("Usuario inexistente")
+     } */
+
+
+
 // ============ ESTRUCTURA DE PRODUCTOS ============ //
 
 class pedido
@@ -24,11 +70,14 @@ const carrito = [];
 
 // ============ BIENVENIDA ============ //
 
-if (confirm(`Bienvenido, ¿Le gustaría ver nuestros productos? \n`) == true) {
-    agregar()
-  } else {
-    alert("¡Hasta pronto!");
-  }
+function saludar() {
+
+     if (confirm(`Bienvenido, ¿Le gustaría ver nuestros productos? \n`) == true) {
+     agregar()
+     } else {
+     alert("¡Hasta pronto!");
+     }
+}
 // ============ BUCLE PEDIDO ============ //
 
 // ============ FUNCION DE PEDIDO ============ //
@@ -45,33 +94,31 @@ let productoId = Number(prompt (`¿Qué desea llevar?:
 
 // ============ BUCLE DE PEDIDO DENTRO DE LA FUNCION ============ //
 
-while (productoId != 7) 
-
-{
-     switch (productoId)
-     {
-          case 1:
-               carrito.push(pedido1)
-          break
-          case 2:
-               carrito.push(pedido2)
-          break
-          case 3:
-               carrito.push(pedido3)
-          break
-          case 4:
-               carrito.push(pedido4)
-          break
-          case 5:
-               carrito.push(pedido5)
-          break
-          case 6:
-               carrito.push(pedido6)
-          break
-          default:
-               alert("Tu opcion es incorrecta")
-          break
-     }
+     while (productoId != 7) {
+          switch (productoId)
+          {
+               case 1:
+                    carrito.push(pedido1)
+               break
+               case 2:
+                    carrito.push(pedido2)
+               break
+               case 3:
+                    carrito.push(pedido3)
+               break
+               case 4:
+                    carrito.push(pedido4)
+               break
+               case 5:
+                    carrito.push(pedido5)
+               break
+               case 6:
+                    carrito.push(pedido6)
+               break
+               default:
+                    alert("Tu opcion es incorrecta")
+               break
+          }
 
 productoId = Number(prompt (`¿Desea agregar algo mas?:
      1. Remeras
@@ -147,70 +194,9 @@ function calcularTotal(carrito)
      return total
 }
 
+function main(){
+     saludar();
+     agregar();
+}
 
-const contenedorProductos = document.getElementById("containerSubtitle");
-
-const listaProductos = [
-     {
-          id: 1,
-          nombre: "Remeras",
-          precioCompra: 1000,
-          precioVenta: 3400,
-          cantidad: 50,
-     },
-     {
-          id: 2,
-          nombre: "Camisas",
-          precioCompra: 2000,
-          precioVenta: 5200,
-          cantidad: 40,
-     },
-     {
-          id: 3,
-          nombre: "Sweters",
-          precioCompra: 5000,
-          precioVenta: 8200,
-          cantidad: 65,
-     },
-     {
-          id: 4,
-          nombre: "Buzos",
-          precioCompra: 8000,
-          precioVenta: 12000,
-          cantidad: 85,
-     },
-     {
-          id: 5,
-          nombre: "Pantalones",
-          precioCompra: 10000,
-          precioVenta: 15300,
-          cantidad: 41,
-     },
-     {
-          id: 6,
-          nombre: "Bermudas",
-          precioCompra: 2000,
-          precioVenta: 5800,
-          cantidad: 39,
-     }
-]
-
-listaProductos.forEach((producto) => {
-     let column = document.createElement("div");
-     column.className = "col-md-4 mt-3 mb-3";
-     // column.id = "columna" + producto.id;
-     column.id = `columna-${producto.id}`
-     column.innerHTML = `
-     <div class="card">
-          <div class="card-body">
-               <p class="card-text"> Nombre: <b>${producto.nombre} </b></p>
-               <p class="card-text"> Precio compra: <b>$${producto.precioCompra} </b></p>
-               <p class="card-text"> Precio venta: <b>$${producto.precioVenta} </b></p>
-               <p class="card-text"> Cantidad: <b>${producto.cantidad} </b></p>
-          </div>
-     </div>
-     `
-
-     contenedorProductos.append(column)
-})
-
+main();
